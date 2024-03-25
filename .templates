@@ -1,0 +1,124 @@
+{
+    "gord-node-only" : {
+        "description" : "Gord Node",
+        "modules":{
+            "gord:kd0" : {
+                "reset-peers" : false,
+                "args":{
+                    "rpclisten" : "0.0.0.0:16110",
+                    "listen": "0.0.0.0:16111",
+                    "profile": 7000
+                }
+            }
+        }
+    },
+    "cpu-miner" : {
+        "description" : "CPU Miner",
+        "modules":{
+            "gord:kd0" : {
+                "reset-peers" : false,
+                "args":{
+                    "rpclisten" : "0.0.0.0:16110",
+                    "listen": "0.0.0.0:16111",
+                    "profile": 7000
+                }
+            },
+            "gpuminer:km0" : {
+                "args":{
+                    "mining-address" : "",
+                    "threads": 1,
+                    "gord-address": "localhost",
+                    "port": "16110"
+                }
+            }
+        }
+    },
+    "gpu-miner" : {
+        "description" : "GPU Miner",
+        "modules":{
+            "gord:kd0" : {
+                "reset-peers" : false,
+                "args":{
+                    "rpclisten" : "0.0.0.0:16110",
+                    "listen": "0.0.0.0:16111",
+                    "profile": 7000
+                }
+            },
+            "gpuminer:km0" : {
+                "args":{
+                    "mining-address" : "",
+                    "cuda-workload": 512,
+                    "gord-address": "localhost",
+                    "port": "16110"
+                }
+            }
+        }
+    },
+
+    "gord-standalone-mining" : {
+        "description" : "Self-Contained Gord Mining",
+        "modules":{
+            "gord:kd0" : {
+                "reset-peers" : false,
+                "args":{
+                    "rpclisten" : "0.0.0.0:16110",
+                    "listen": "0.0.0.0:16111",
+                    "profile": 7000
+                }
+            },
+            "gord:kd1" : {
+                "reset-peers" : false,
+                "args":{
+                    "rpclisten":"0.0.0.0:16310",
+                    "listen": "0.0.0.0:16311",
+                    "profile": 7001,
+                    "connect": "0.0.0.0:16111"
+                }
+            },
+            "gpuminer:km0" : {
+                "args":{
+                    "mining-address" : "",
+                    "t": 1,
+                    "gord-address": "localhost",
+			        "port": "16110"
+                }
+            }
+        }
+    },
+    "gord-archival-only" : {
+        "description" : "Gord Archival Node",
+        "modules":{
+            "gord:kd0" : {
+                "reset-peers" : false,
+                "args":{
+                    "archival" : null,
+                    "rpclisten" : "0.0.0.0:16110",
+                    "listen": "0.0.0.0:16111",
+                    "profile": 7000
+                }
+            }
+        }
+    },
+    "gord-archival-mining" : {
+        "description" : "Gord Archival Node + Miner",
+        "modules":{
+            "gord:kd0" : {
+                "reset-peers" : false,
+                "args":{
+                    "archival" : null,
+                    "rpclisten" : "0.0.0.0:16110",
+                    "listen": "0.0.0.0:16111",
+                    "profile": 7000
+                }
+            },
+            "gpuminer:km0" : {
+                "args":{
+                    "mining-address" : "",
+                    "t": 1,
+                    "gord-address": "localhost",
+			        "port": "16110"
+                }
+            }
+        }
+    }
+}

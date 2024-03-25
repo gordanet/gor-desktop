@@ -1,0 +1,114 @@
+[application]
+name = "gor-desktop"
+title = "Gor-Desktop"
+version = "package.json::version"
+organization = "ASPECTRON Inc"
+
+[description]
+short = "Desktop Node and Wallet for Gor"
+long = """
+Gor-Desktop is a desktop wallet and a p2p network node instance. This application
+allows you to participate in the Gor network by running a local node
+
+"""
+
+[package]
+archive = { include = true }
+signatures = ["SHA256"]
+build = [
+    { NPM = { clean = true } }
+]
+# wasm = "root/wasm"
+resources = "resources/setup"
+output = "setup/$PLATFORM-$ARCH"
+include = [
+    { glob = [
+            "bin/*",
+            "*.js",
+            "resources/**.css",
+            "resources/images/*.*",
+            "resources/**.ttf",
+            "resources/**.woff",
+            "resources/**.svg",
+            "i18n.*",
+            "modules/*",
+            "lib/*",
+            "node_modules/*",
+            "package.json"
+        ]},
+]
+
+[[action]]
+items = [{ copy = { glob = [
+        ".templates",
+        ".defaults",
+        "CHANGELOG.md"
+    ], to = "$TARGET", hidden = true}}]
+
+[[dependency]]
+name = "gord"
+git = { url = "https://github.com/gordanet/gord", branch = "master" }
+run = [
+    { cmd = "go build" },
+    { cmd = "go build", cwd = "cmd/genkeypair" },
+    { cmd = "go build", cwd = "cmd/gorctl" },
+    { cmd = "go build", cwd = "cmd/gorwallet" },
+]
+copy = [
+    { regex = [
+        "gord(.exe)?$",
+        "genkeypair(.exe)?$",
+        "gorctl(.exe)?$",
+        "gorwallet(.exe)?$",
+    ], to = "bin/$PLATFORM-$ARCH", flatten = true },
+]
+
+[[dependency]]
+name = "gor-miner"
+platform = ["windows", "linux"]
+git = { url = "https://github.com/aspectron/gor-miner", branch = "main" }
+run = [{ argv = ["cargo","build","--release","-p","gorcuda"] }]
+copy = [
+    { regex = [
+        "target/release/gorcuda(.so|.dll)$",
+        "target/release/goropencl(.so|.dll)$",
+        "target/release/gor-miner(.exe)?$",
+    ], to = "bin/$PLATFORM-$ARCH", flatten = true },
+    # { file = "target/release/gor-miner$EXE", to = "bin/$PLATFORM-$ARCH/gpuminer$EXE" },
+]
+
+[nwjs]
+version = "0.55.0"
+ffmpeg = false
+
+[macos-disk-image]
+window_caption_height = 60
+window_position = [400,100]
+window_size = [485,330]
+icon_size = 72
+application_icon_position = [100,158]
+system_applications_folder_position = [385,158]
+
+[windows]
+uuid = "c1072045-6d98-44d8-9aa5-e9be6c79bd01"
+group = "Gor"
+# run_on_startup = "everyone"
+run_after_setup = true
+
+[images]
+application="logo.png"
+macos-application="Icon1024.png"
+macos-disk-image="gor-desktop-dmg.png"
+innosetup-icon="logo.png"
+innosetup-wizard-small="gor-desktop-55x58.bmp"
+innosetup-wizard-large="gor-desktop-164x314.bmp"
+
+[languages]
+languages = ["english","french"]
+
+[firewall]
+application = { direction = "in+out" }
+rules = [
+    { name = "Gor Node", program = "bin/windows-x64/gord.exe", direction="in+out" },
+    { name = "Gor GPU Miner", program = "bin/windows-x64/gpuminer.exe", direction="out" }
+]
