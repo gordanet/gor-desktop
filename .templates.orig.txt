@@ -5,8 +5,8 @@
             "gord:kd0" : {
                 "reset-peers" : false,
                 "args":{
-                    "rpclisten" : "0.0.0.0:16210",
-                    "listen": "0.0.0.0:16211",
+                    "rpclisten" : "0.0.0.0:46210",
+                    "listen": "0.0.0.0:46211",
                     "profile": 7000,
                     "utxoindex" : null
                 }
@@ -20,8 +20,8 @@
             "gord:kd0" : {
                 "reset-peers" : false,
                 "args":{
-                    "rpclisten" : "0.0.0.0:16210",
-                    "listen": "0.0.0.0:16211",
+                    "rpclisten" : "0.0.0.0:46210",
+                    "listen": "0.0.0.0:46211",
                     "profile": 7000,
                     "utxoindex" : null
                 }
@@ -29,7 +29,7 @@
             "gorminer:km0" : {
                 "args":{
                     "miningaddr" : "gortest:qrjtaaaryx3ngg48p888e52fd6e7u4epjvh46p7rqz",
-                    "rpcserver":"localhost:16210",
+                    "rpcserver":"localhost:46210",
                     "mine-when-not-synced" : null
                 }
             }
@@ -41,8 +41,8 @@
             "gord:kd0" : {
                 "reset-peers" : false,
                 "args":{
-                    "rpclisten" : "0.0.0.0:16210",
-                    "listen": "0.0.0.0:16211",
+                    "rpclisten" : "0.0.0.0:46210",
+                    "listen": "0.0.0.0:46211",
                     "profile": 7000,
                     "utxoindex" : null
                 }
@@ -50,17 +50,17 @@
             "gord:kd1" : {
                 "reset-peers" : false,
                 "args":{
-                    "rpclisten":"0.0.0.0:16310",
-                    "listen": "0.0.0.0:16311",
+                    "rpclisten":"0.0.0.0:46310",
+                    "listen": "0.0.0.0:46311",
                     "profile": 7001,
-                    "connect": "0.0.0.0:16211",
+                    "connect": "0.0.0.0:46211",
                     "utxoindex" : null
                 }
             },
             "gorminer:km0" : {
                 "args":{
                     "miningaddr" : "gortest:qrjtaaaryx3ngg48p888e52fd6e7u4epjvh46p7rqz",
-                    "rpcserver":"localhost:16210",
+                    "rpcserver":"localhost:46210",
                     "mine-when-not-synced" : null
                 }
             }
@@ -72,8 +72,8 @@
             "gord:kd0" : {
                 "reset-peers" : false,
                 "args":{
-                    "rpclisten" : "0.0.0.0:16210",
-                    "listen": "0.0.0.0:16211",
+                    "rpclisten" : "0.0.0.0:46210",
+                    "listen": "0.0.0.0:46211",
                     "profile": 7000,
                     "utxoindex" : null
                 }
@@ -88,13 +88,13 @@
             "gorrovd:kvd0" : {
                 "args":{
                     "listen":"localhost:11224",
-                    "rpcserver":"localhost:16210",
+                    "rpcserver":"localhost:46210",
                     "dbaddress":"localhost:18787"
                 }
             },
             "gorrovsyncd:kvsd0" : {
                 "args":{
-                    "rpcserver":"localhost:16210",
+                    "rpcserver":"localhost:46210",
                     "dbaddress":"localhost:18787",
                     "mqttaddress": "localhost:19792",
                     "mqttuser" : "user",
@@ -104,7 +104,7 @@
             "gorminer:km0" : {
                 "args":{
                     "miningaddr" : "gortest:qrjtaaaryx3ngg48p888e52fd6e7u4epjvh46p7rqz",
-                    "rpcserver":"localhost:16210",
+                    "rpcserver":"localhost:46210",
                     "mine-when-not-synced" : null
                 }
             }
@@ -117,8 +117,8 @@
             "gord:kd0" : {
                 "reset-peers" : false,
                 "args":{
-                    "rpclisten" : "0.0.0.0:16210",
-                    "listen": "0.0.0.0:16211",
+                    "rpclisten" : "0.0.0.0:46210",
+                    "listen": "0.0.0.0:46211",
                     "profile": 7000,
                     "utxoindex" : null
                 }
@@ -126,10 +126,10 @@
             "gord:kd1" : {
                 "reset-peers" : false,
                 "args":{
-                    "rpclisten":"0.0.0.0:16310",
-                    "listen": "0.0.0.0:16311",
+                    "rpclisten":"0.0.0.0:46310",
+                    "listen": "0.0.0.0:46311",
                     "profile": 7001,
-                    "connect": "0.0.0.0:16211",
+                    "connect": "0.0.0.0:46211",
                     "utxoindex" : null
                 }
             },
@@ -143,13 +143,13 @@
             "gorrovd:kvd0" : {
                 "args":{
                     "listen":"localhost:11224",
-                    "rpcserver":"localhost:16210",
+                    "rpcserver":"localhost:46210",
                     "dbaddress":"localhost:18787"
                 }
             },
             "gorrovsyncd:kvsd0" : {
                 "args":{
-                    "rpcserver":"localhost:16210",
+                    "rpcserver":"localhost:46210",
                     "dbaddress":"localhost:18787",
                     "mqttaddress": "localhost:19792",
                     "mqttuser" : "user",
@@ -159,7 +159,7 @@
             "gorminer:km0" : {
                 "args":{
                     "miningaddr" : "gortest:qrjtaaaryx3ngg48p888e52fd6e7u4epjvh46p7rqz",
-                    "rpcserver":"localhost:16210",
+                    "rpcserver":"localhost:46210",
                     "mine-when-not-synced" : null
                 }
             }
