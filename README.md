@@ -130,7 +130,7 @@ Supported process types:
 			"rpclisten": "0.0.0.0:46310",
 			"listen": "0.0.0.0:46311",
 			"profile": 7001,
-			"connect": "0.0.0.0:46211",
+			"connect": "0.0.0.0:46111",
 			"rpcuser": "user",
 			"rpcpass": "pass"
 		}
