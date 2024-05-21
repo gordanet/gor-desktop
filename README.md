@@ -118,8 +118,8 @@ Supported process types:
 {
 	"gord:kd0": {
 		"args": {
-			"rpclisten": "0.0.0.0:46210",
-			"listen": "0.0.0.0:46211",
+			"rpclisten": "0.0.0.0:46110",
+			"listen": "0.0.0.0:46111",
 			"profile": 7000,
 			"rpcuser": "user",
 			"rpcpass": "pass"
@@ -137,7 +137,7 @@ Supported process types:
 	},
 	"simulator:sim0": {
         "blockdelay" : 2000,
-		"peers": [ "127.0.0.1:16310" ]
+		"peers": [ "127.0.0.1:46310" ]
 	},
 	"pgsql:db0": {
 		"port": 18787
