@@ -570,7 +570,7 @@ class Gor-DesktopApp extends FlowApp{
 		}).filter(o=>o.type=='gord').shift();
 
 		if(!gord)
-			return null;//{network:"gor", port:16110};//{network:"gortest", port:16110};
+			return null;//{network:"gor", port:46110};//{network:"gortest", port:46110};
 
 		const { args } = gord;
 		let networkType = ['testnet','devnet','simnet'].filter(v=>args[v] !== undefined).shift() || 'mainnet';
